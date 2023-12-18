@@ -7,6 +7,7 @@ namespace YerayHalterofilia
         public static IServiceCollection AddDependency(this IServiceCollection services)
         {
             services.AddTransient<ITypeLiftingServices, TypeLiftingServices>();
+            services.AddTransient<ICountryServices, CountryServices>();
 
             return services;
         }

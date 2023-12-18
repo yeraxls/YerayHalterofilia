@@ -15,5 +15,14 @@ namespace YerayHalterofilia.Models
                 Name = typeLifting.Name
             };
         }
+
+        public static explicit operator TypeLiftingModel(TypeLifting typeLifting)
+        {
+            return new TypeLiftingModel
+            {
+                Id = typeLifting.Id,
+                Name = typeLifting.Name
+            };
+        }
     }
 }

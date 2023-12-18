@@ -16,7 +16,7 @@ namespace YerayHalterofilia.Services
         public async Task<List<TypeLiftingModel>> GetTypeLifting()
         {
             return await _context.Queryable<TypeLifting>()
-                .Select(c => new TypeLiftingModel { Id = c.Id, Name = c.Name}).ToListAsync();
+                .Select(c => (TypeLiftingModel)c).ToListAsync();
         }
 
         public async Task CreateTypeLifting(string type)
