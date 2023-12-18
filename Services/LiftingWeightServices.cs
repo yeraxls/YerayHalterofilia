@@ -15,8 +15,6 @@ namespace YerayHalterofilia.Services
 
         public async Task<List<ResultsLiftingWeightModels>> GetLiftingWeights()
         {
-            //var a =  await _context.Queryable<LiftingWeight>().Include(c => c.TypeLifting).Include(c => c.Competitor)
-            //    .Select(c => (LiftingsWeightModel)c).ToListAsync();
             var listResult = new List<ResultsLiftingWeightModels>();
             var liftingGrouped = await _context.Queryable<LiftingWeight>().Include(c => c.TypeLifting).Include(c => c.Competitor)
                 .GroupBy(c => c.IdCompetitor).ToListAsync();
