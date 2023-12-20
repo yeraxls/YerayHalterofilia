@@ -69,6 +69,7 @@ public class LiftingsWeightController : ControllerBase
         try
         {
             await _liftingWeightServices.CreateLiftingWeight(newLiftingWeight);
+            _logger.Write("Post", "Created Lifting Weight");
             return Ok();
         }
         catch
@@ -85,6 +86,7 @@ public class LiftingsWeightController : ControllerBase
         try
         {
             await _liftingWeightServices.UpdateLiftingWeight(liftingsWeight);
+            _logger.Write("Put", "Updated Lifting Weight");
             return Ok();
         }
         catch
@@ -101,6 +103,7 @@ public class LiftingsWeightController : ControllerBase
         try
         {
             await _liftingWeightServices.DeleteLiftingWeight(id);
+            _logger.Write("Delete", "Deleted Lifting Weight");
             return Ok();
         }
         catch

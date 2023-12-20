@@ -67,6 +67,7 @@ public class CompetitorController : ControllerBase
         try
         {
             await _competitorServices.CreateCompetitor(competitor);
+            _logger.Write("Post", "Created competitor");
             return Ok();
         }
         catch
@@ -82,6 +83,7 @@ public class CompetitorController : ControllerBase
         try
         {
             await _competitorServices.UpdateCompetitor(competitor);
+            _logger.Write("Put", "Updated competitor");
             return Ok();
         }
         catch
@@ -97,6 +99,7 @@ public class CompetitorController : ControllerBase
         try
         {
             await _competitorServices.DeleteCompetitor(id);
+            _logger.Write("Delete", "Deleted competitor");
             return Ok();
         }
         catch

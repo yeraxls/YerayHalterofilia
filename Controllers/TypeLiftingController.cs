@@ -40,6 +40,7 @@ public class TypeLiftingController : ControllerBase
         try
         {
             await _typeLiftingServices.CreateTypeLifting(type);
+            _logger.Write("Post", "Created Type lifting");
             return Ok();
         }
         catch
@@ -55,6 +56,7 @@ public class TypeLiftingController : ControllerBase
         try
         {
             await _typeLiftingServices.UpdateTypeLifting(typeLifting);
+            _logger.Write("Put", "Updated Type lifting");
             return Ok();
         }
         catch
@@ -70,6 +72,7 @@ public class TypeLiftingController : ControllerBase
         try
         {
             await _typeLiftingServices.DeleteTypeLifting(id);
+            _logger.Write("Delete", "Deleted Type lifting");
             return Ok();
         }
         catch

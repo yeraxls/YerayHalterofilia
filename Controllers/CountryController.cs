@@ -40,6 +40,7 @@ public class CountryController : ControllerBase
         try
         {
             await _countryServices.CreateCountry(name, cod);
+            _logger.Write("Post", "Created country");
             return Ok();
         }
         catch
@@ -55,6 +56,7 @@ public class CountryController : ControllerBase
         try
         {
             await _countryServices.UpdateCountry(country);
+            _logger.Write("Put", "Updated country");
             return Ok();
         }
         catch
@@ -70,6 +72,7 @@ public class CountryController : ControllerBase
         try
         {
             await _countryServices.DeleteCountry(id);
+            _logger.Write("Delete", "Deleted country");
             return Ok();
         }
         catch
