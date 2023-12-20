@@ -8,11 +8,10 @@ namespace YerayHalterofilia.Controllers;
 [Route("[controller]")]
 public class UserController : ControllerBase
 {
-
-    private readonly ILogger<UserController> _logger;
     private readonly IUserServices _userServices;
     private readonly IConfiguration _config;
-    public UserController(ILogger<UserController> logger, IUserServices userServices, IConfiguration config)
+    private readonly ILoggerSistemService _logger;
+    public UserController(ILoggerSistemService logger, IUserServices userServices, IConfiguration config)
     {
         _logger = logger;
         _userServices = userServices;
@@ -28,13 +27,14 @@ public class UserController : ControllerBase
             if (user != null)
             {
                 var token = _userServices.Generate(user);
-
+                _logger.Write("Login", "Succesfull login");
                 return Ok(token);
             }
             return NotFound("Usuario no encontrado");
         }
         catch
         {
+            _logger.Write("Login", "Login error", true);
             return BadRequest();
         }
     }
@@ -44,11 +44,12 @@ public class UserController : ControllerBase
     {
         try
         {
-            _userServices.CreateUser(login);
+            await _userServices.CreateUser(login);
             return Ok("Usuario creado");
         }
         catch
         {
+            _logger.Write("Create user", "Create user", true);
             return BadRequest();
         }
     }

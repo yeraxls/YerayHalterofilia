@@ -10,10 +10,10 @@ namespace YerayHalterofilia.Controllers;
 public class CompetitorController : ControllerBase
 {
 
-    private readonly ILogger<CompetitorController> _logger;
+    private readonly ILoggerSistemService _logger;
     private readonly ICompetitorServices _competitorServices;
 
-    public CompetitorController(ILogger<CompetitorController> logger, ICompetitorServices competitorServices)
+    public CompetitorController(ILoggerSistemService logger, ICompetitorServices competitorServices)
     {
         _logger = logger;
         _competitorServices = competitorServices;
@@ -29,6 +29,7 @@ public class CompetitorController : ControllerBase
         }
         catch
         {
+            _logger.Write("Get", "Competitor", true);
             return BadRequest();
         }
     }
@@ -42,6 +43,7 @@ public class CompetitorController : ControllerBase
         }
         catch
         {
+            _logger.Write("Get", "Competitor by Id", true);
             return BadRequest();
         }
     }
@@ -54,6 +56,7 @@ public class CompetitorController : ControllerBase
         }
         catch
         {
+            _logger.Write("Get", "Competitor by Id Country", true);
             return BadRequest();
         }
     }
@@ -68,6 +71,7 @@ public class CompetitorController : ControllerBase
         }
         catch
         {
+            _logger.Write("Post", "Competitor", true);
             return BadRequest();
         }
     }
@@ -82,6 +86,7 @@ public class CompetitorController : ControllerBase
         }
         catch
         {
+            _logger.Write("Put", "Competitor", true);
             return BadRequest();
         }
     }
@@ -96,6 +101,7 @@ public class CompetitorController : ControllerBase
         }
         catch
         {
+            _logger.Write("Delete", "Competitor", true);
             return BadRequest();
         }
     }

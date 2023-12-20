@@ -11,10 +11,10 @@ namespace YerayHalterofilia.Controllers;
 public class TypeLiftingController : ControllerBase
 {
 
-    private readonly ILogger<TypeLiftingController> _logger;
+    private readonly ILoggerSistemService _logger;
     private readonly ITypeLiftingServices _typeLiftingServices;
 
-    public TypeLiftingController(ILogger<TypeLiftingController> logger, ITypeLiftingServices typeLiftingServices)
+    public TypeLiftingController(ILoggerSistemService logger, ITypeLiftingServices typeLiftingServices)
     {
         _logger = logger;
         _typeLiftingServices = typeLiftingServices;
@@ -29,6 +29,7 @@ public class TypeLiftingController : ControllerBase
         }
         catch
         {
+            _logger.Write("Get", "Type Lifting", true);
             return BadRequest();
         }
     }
@@ -43,6 +44,7 @@ public class TypeLiftingController : ControllerBase
         }
         catch
         {
+            _logger.Write("Post", "Type Lifting", true);
             return BadRequest();
         }
     }
@@ -57,6 +59,7 @@ public class TypeLiftingController : ControllerBase
         }
         catch
         {
+            _logger.Write("Put", "Type Lifting", true);
             return BadRequest();
         }
     }
@@ -71,6 +74,7 @@ public class TypeLiftingController : ControllerBase
         }
         catch
         {
+            _logger.Write("Delete", "Type Lifting", true);
             return BadRequest();
         }
     }

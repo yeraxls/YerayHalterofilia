@@ -11,6 +11,7 @@ namespace YerayHalterofilia
             services.AddScoped<ICompetitorServices, CompetitorServices>();
             services.AddScoped<ILiftingWeightServices, LiftingWeightServices>();
             services.AddScoped<IUserServices, UserServices>();
+            services.AddScoped<ILoggerSistemService, LoggerSistemService>();
 
             return services;
         }

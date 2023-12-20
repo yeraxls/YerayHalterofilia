@@ -11,10 +11,10 @@ namespace YerayHalterofilia.Controllers;
 public class CountryController : ControllerBase
 {
 
-    private readonly ILogger<CountryController> _logger;
+    private readonly ILoggerSistemService _logger;
     private readonly ICountryServices _countryServices;
 
-    public CountryController(ILogger<CountryController> logger, ICountryServices countryServices)
+    public CountryController(ILoggerSistemService logger, ICountryServices countryServices)
     {
         _logger = logger;
         _countryServices = countryServices;
@@ -29,6 +29,7 @@ public class CountryController : ControllerBase
         }
         catch
         {
+            _logger.Write("Get", "Country", true);
             return BadRequest();
         }
     }
@@ -43,6 +44,7 @@ public class CountryController : ControllerBase
         }
         catch
         {
+            _logger.Write("Post", "Country", true);
             return BadRequest();
         }
     }
@@ -57,6 +59,7 @@ public class CountryController : ControllerBase
         }
         catch
         {
+            _logger.Write("Put", "Country", true);
             return BadRequest();
         }
     }
@@ -71,6 +74,7 @@ public class CountryController : ControllerBase
         }
         catch
         {
+            _logger.Write("Delete", "Country", true);
             return BadRequest();
         }
     }

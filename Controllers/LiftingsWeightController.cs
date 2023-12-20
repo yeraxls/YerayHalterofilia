@@ -10,10 +10,10 @@ namespace YerayHalterofilia.Controllers;
 public class LiftingsWeightController : ControllerBase
 {
 
-    private readonly ILogger<LiftingsWeightController> _logger;
+    private readonly ILoggerSistemService _logger;
     private readonly ILiftingWeightServices _liftingWeightServices;
 
-    public LiftingsWeightController(ILogger<LiftingsWeightController> logger, ILiftingWeightServices liftingWeightServices)
+    public LiftingsWeightController(ILoggerSistemService logger, ILiftingWeightServices liftingWeightServices)
     {
         _logger = logger;
         _liftingWeightServices = liftingWeightServices;
@@ -28,6 +28,7 @@ public class LiftingsWeightController : ControllerBase
         }
         catch
         {
+            _logger.Write("Get", "Lifting Weight", true);
             return BadRequest();
         }
     }
@@ -42,6 +43,7 @@ public class LiftingsWeightController : ControllerBase
         }
         catch
         {
+            _logger.Write("Get", "Lifting Weight by Id", true);
             return BadRequest();
         }
     }
@@ -55,6 +57,7 @@ public class LiftingsWeightController : ControllerBase
         }
         catch
         {
+            _logger.Write("Get", "Lifting Weight by Id Competitor", true);
             return BadRequest();
         }
     }
@@ -70,6 +73,7 @@ public class LiftingsWeightController : ControllerBase
         }
         catch
         {
+            _logger.Write("Post", "Lifting Weight", true);
             return BadRequest();
         }
     }
@@ -85,6 +89,7 @@ public class LiftingsWeightController : ControllerBase
         }
         catch
         {
+            _logger.Write("Put", "Lifting Weight", true);
             return BadRequest();
         }
     }
@@ -100,6 +105,7 @@ public class LiftingsWeightController : ControllerBase
         }
         catch
         {
+            _logger.Write("Delete", "Lifting Weight", true);
             return BadRequest();
         }
     }
