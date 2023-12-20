@@ -10,6 +10,7 @@ namespace YerayHalterofilia
             services.AddScoped<ICountryServices, CountryServices>();
             services.AddScoped<ICompetitorServices, CompetitorServices>();
             services.AddScoped<ILiftingWeightServices, LiftingWeightServices>();
+            services.AddScoped<IUserServices, UserServices>();
 
             return services;
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using YerayHalterofilia.Models;
 using YerayHalterofilia.Services;
 
@@ -6,6 +7,7 @@ namespace YerayHalterofilia.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class CountryController : ControllerBase
 {
 

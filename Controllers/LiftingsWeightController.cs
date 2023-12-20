@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using YerayHalterofilia.Models;
 using YerayHalterofilia.Services;
 
@@ -32,6 +33,7 @@ public class LiftingsWeightController : ControllerBase
     }
 
     [HttpGet("/get-by-id-type/{id}")]
+    [Authorize]
     public async Task<ActionResult> GetByIdType(int id)
     {
         try
@@ -44,6 +46,7 @@ public class LiftingsWeightController : ControllerBase
         }
     }
     [HttpGet("/get-by-competitor/{idCompetitor}")]
+    [Authorize]
     public async Task<ActionResult> GetLiftingWeightByIdCompetitor(int idCompetitor)
     {
         try
@@ -57,6 +60,7 @@ public class LiftingsWeightController : ControllerBase
     }
 
     [HttpPost()]
+    [Authorize]
     public async Task<ActionResult> CreateLiftingsWeight([FromBody] NewLiftingWeightModel newLiftingWeight)
     {
         try
@@ -71,6 +75,7 @@ public class LiftingsWeightController : ControllerBase
     }
 
     [HttpPut()]
+    [Authorize]
     public async Task<ActionResult> UpdateLiftingsWeight([FromBody] LiftingsWeightModel liftingsWeight)
     {
         try
@@ -85,6 +90,7 @@ public class LiftingsWeightController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<ActionResult> DeleteLiftingsWeight(int id)
     {
         try

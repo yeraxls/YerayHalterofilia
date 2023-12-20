@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using YerayHalterofilia.Models;
 using YerayHalterofilia.Services;
 
@@ -19,6 +20,7 @@ public class CompetitorController : ControllerBase
     }
 
     [HttpGet()]
+    [Authorize]
     public async Task<ActionResult> Get()
     {
         try
